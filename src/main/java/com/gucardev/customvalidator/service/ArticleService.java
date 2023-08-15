@@ -4,6 +4,7 @@ import com.gucardev.customvalidator.dto.CreateArticleRequest;
 import com.gucardev.customvalidator.model.Article;
 import com.gucardev.customvalidator.model.User;
 import com.gucardev.customvalidator.repository.ArticleRepository;
+import com.gucardev.customvalidator.validator.MethodValid;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.BeanUtils;
@@ -28,6 +29,7 @@ public class ArticleService {
     return articleRepository.findById(id);
   }
 
+  @MethodValid
   public Article createArticle(CreateArticleRequest request) {
     //    Long userId = request.getUserId();
     //    User user =
