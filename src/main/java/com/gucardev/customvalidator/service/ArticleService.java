@@ -4,13 +4,15 @@ import com.gucardev.customvalidator.dto.CreateArticleRequest;
 import com.gucardev.customvalidator.model.Article;
 import com.gucardev.customvalidator.model.User;
 import com.gucardev.customvalidator.repository.ArticleRepository;
-import com.gucardev.customvalidator.validator.MethodValid;
+import jakarta.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 
 @Service
+@Validated
 public class ArticleService {
 
   private final ArticleRepository articleRepository;
@@ -29,8 +31,8 @@ public class ArticleService {
     return articleRepository.findById(id);
   }
 
-  @MethodValid
-  public Article createArticle(CreateArticleRequest request) {
+ // @MethodValid
+  public Article createArticle(@Valid CreateArticleRequest request) {
     //    Long userId = request.getUserId();
     //    User user =
     //        userService
@@ -42,7 +44,6 @@ public class ArticleService {
     User user = new User();
     user.setId(request.getUserId());
     article.setUser(user);
-
     //    article.setUser(user);
 
     return articleRepository.save(article);
