@@ -8,7 +8,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = CustomValidator1Impl.class)
 public @interface CustomValidator1 {
-  String message() default "CustomValidator1 validation failed";
+  String message() default "{CustomValidator1.message}";
 
   Class<?>[] groups() default {};
 

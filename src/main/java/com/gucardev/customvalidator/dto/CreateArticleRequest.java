@@ -1,7 +1,6 @@
 package com.gucardev.customvalidator.dto;
 
-import com.gucardev.customvalidator.validator.CustomValidator1;
-import com.gucardev.customvalidator.validator.UserValidator;
+import com.gucardev.customvalidator.validator.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +8,10 @@ import lombok.Setter;
 @Setter
 public class CreateArticleRequest {
 
-  @CustomValidator1 private String title;
+  @GenericValidator(value = {EmailValidator.class, PhoneNumberValidator.class})
+  private String title;
+
+
   private String content;
-  @UserValidator private Long userId;
+  private Long userId;
 }
