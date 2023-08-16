@@ -10,8 +10,8 @@ public class ValidatorUtil<T> {
   ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
   Validator validator = factory.getValidator();
 
-  public void validate(T object, ConstraintValidator constraintValidator, String err) {
-    if (!constraintValidator.isValid(object, null)) {
+  public void validate(T object,ConstraintValidator clazz, String err) {
+    if (!clazz.isValid(object, null)) {
       throw new RuntimeException(err);
     }
   }

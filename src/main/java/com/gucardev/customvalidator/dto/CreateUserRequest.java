@@ -11,6 +11,7 @@ import lombok.Setter;
 public class CreateUserRequest {
   @LengthValidator(
       length = 8,
+      errorCode = 1234,
       message = "length validation error",
       groups = {ValidatorGroup1.class})
   private String name;

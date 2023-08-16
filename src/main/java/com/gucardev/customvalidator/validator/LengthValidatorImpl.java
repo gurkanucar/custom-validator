@@ -10,6 +10,11 @@ public class LengthValidatorImpl implements ConstraintValidator<LengthValidator,
   public void initialize(LengthValidator constraintAnnotation) {
     this.length = constraintAnnotation.length();
   }
+  public LengthValidatorImpl() {
+  }
+  public LengthValidatorImpl(int length) {
+    this.length = length;
+  }
 
   @Override
   public boolean isValid(String value, ConstraintValidatorContext context) {

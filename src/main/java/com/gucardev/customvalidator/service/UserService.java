@@ -3,6 +3,7 @@ package com.gucardev.customvalidator.service;
 import com.gucardev.customvalidator.dto.CreateUserRequest;
 import com.gucardev.customvalidator.model.User;
 import com.gucardev.customvalidator.repository.UserRepository;
+import com.gucardev.customvalidator.validator.LengthValidatorImpl;
 import com.gucardev.customvalidator.validator.ValidatorGroup1;
 import com.gucardev.customvalidator.validator.ValidatorUtil;
 import java.util.List;
@@ -31,6 +32,7 @@ public class UserService {
 
   public User createUser(CreateUserRequest request) {
     validator.validate(request, ValidatorGroup1.class);
+    validator.validate(request.getName(), new LengthValidatorImpl(8), "asd");
     User user = new User();
     BeanUtils.copyProperties(request, user);
     return userRepository.save(user);

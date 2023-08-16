@@ -13,5 +13,8 @@ public @interface LengthValidator {
   Class<?>[] groups() default {};
 
   Class<? extends Payload>[] payload() default {};
+
   int length();
+
+  int errorCode() default 1000;
 }
