@@ -13,4 +13,6 @@ public @interface CustomValidator1 {
   Class<?>[] groups() default {};
 
   Class<? extends Payload>[] payload() default {};
+
+  int customValue() default 0;
 }
