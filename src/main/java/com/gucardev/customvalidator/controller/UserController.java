@@ -1,5 +1,6 @@
 package com.gucardev.customvalidator.controller;
 
+import com.gucardev.customvalidator.dto.CreateUserRequest;
 import com.gucardev.customvalidator.model.User;
 import com.gucardev.customvalidator.service.UserService;
 import java.util.List;
@@ -37,8 +38,8 @@ public class UserController {
   }
 
   @PostMapping
-  public ResponseEntity<User> createUser(@RequestBody User user) {
-    User createdUser = userService.createUser(user);
+  public ResponseEntity<User> createUser(@RequestBody CreateUserRequest request) {
+    User createdUser = userService.createUser(request);
     return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
   }
 

@@ -29,9 +29,9 @@ public class ValidatorUtil<T> {
   private void processViolations(ConstraintViolation<T> violation) {
     var annotationAttributes = violation.getConstraintDescriptor().getAttributes();
     int value =
-        Objects.isNull(annotationAttributes.get("value"))
+        !Objects.isNull(annotationAttributes.get("value"))
             ? (int) annotationAttributes.get("value")
             : 0;
-    System.out.println(value);
+    throw new RuntimeException(violation.getMessage());
   }
 }
